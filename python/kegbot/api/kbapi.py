@@ -120,7 +120,7 @@ def decode_response(response):
 
 ### end common
 
-class KrestClient:
+class Client:
   """Kegweb RESTful API client."""
   def __init__(self, api_url=None, api_key=None):
     if api_url is None:
@@ -187,15 +187,6 @@ class KrestClient:
       r = requests.get(url, params=params, headers=headers,
           timeout=FLAGS.api_timeout)
 
-    #try:
-    #  # Issue a GET or POST (urlopen will decide based on encoded_post_data).
-    #  response_data = self._opener.open(url, data=encoded_post_data,
-    #      timeout=FLAGS.krest_timeout).read()
-    #except HTTPError, e:
-    #  raise ServerError('Caused by: %s' % e)
-    #except URLError, e:
-    #  raise ServerError('URL Error, reason: %s' % e.reason)
-
     return decode_response(r)
 
   def RecordDrink(self, tap_name, ticks, volume_ml=None, username=None,
@@ -259,7 +250,7 @@ class KrestClient:
 
 def main():
   import pprint
-  c = KrestClient()
+  c = Client()
 
   print '== record a drink =='
   pprint.pprint(c.RecordDrink('kegboard.flow0', 2200))
