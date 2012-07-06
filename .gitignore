@@ -3,5 +3,6 @@
 *.pyc
 *.egg
 
+python/dist
 python/distribute-*
 python/*egg-info
