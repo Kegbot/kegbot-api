@@ -1,16 +1,11 @@
+.. _api-objets:
 
-.. _data-model:
+====================
+API Object Reference
+====================
 
-===========================
-Kegbot Data Model Reference
-===========================
+This document lists commonly used objects in the Kegbot API.
 
-This document contains a reference of the most commonly used objects in the API.
-
-.. _api-objects:
-
-Object Types
-============
 .. _model-authenticationtoken:
 
 AuthenticationToken
@@ -544,22 +539,6 @@ paging  :ref:`model-paging`                  *(optional)* A single :ref:`model-p
 ======  ===================================  ================================================
 
 
-.. _model-systemeventhtmlset:
-
-SystemEventHtmlSet
-==================
-
-Fields
-------
-
-======  =================================  ================================================
-Name    Type                               Description
-======  =================================  ================================================
-events  :ref:`model-systemeventhtml` list  A list of :ref:`model-systemeventhtml` objects
-paging  :ref:`model-paging`                *(optional)* A single :ref:`model-paging` object
-======  =================================  ================================================
-
-
 .. _model-soundeventset:
 
 SoundEventSet
@@ -590,22 +569,6 @@ Name    Type                         Description
 taps    :ref:`model-tapdetail` list  A list of :ref:`model-tapdetail` objects
 paging  :ref:`model-paging`          *(optional)* A single :ref:`model-paging` object
 ======  ===========================  ================================================
-
-
-.. _model-drinkdetailhtmlset:
-
-DrinkDetailHtmlSet
-==================
-
-Fields
-------
-
-======  =================================  ================================================
-Name    Type                               Description
-======  =================================  ================================================
-drinks  :ref:`model-drinkdetailhtml` list  A list of :ref:`model-drinkdetailhtml` objects
-paging  :ref:`model-paging`                *(optional)* A single :ref:`model-paging` object
-======  =================================  ================================================
 
 
 .. _model-thermosensorset:
@@ -743,22 +706,6 @@ image  :ref:`model-image`        *(optional)* A single :ref:`model-image` object
 =====  ========================  ===============================================
 
 
-.. _model-systemeventhtml:
-
-SystemEventHtml
-===============
-
-Fields
-------
-
-====  ======  =============
-Name  Type    Description
-====  ======  =============
-id    string  
-html  string  *(optional)* 
-====  ======  =============
-
-
 .. _model-thermosensordetail:
 
 ThermoSensorDetail
@@ -774,21 +721,4 @@ sensor     :ref:`model-thermosensor`  A single :ref:`model-thermosensor` object
 last_temp  float                      *(optional)* 
 last_time  string                     *(optional)* 
 =========  =========================  =========================================
-
-
-.. _model-drinkdetailhtml:
-
-DrinkDetailHtml
-===============
-
-Fields
-------
-
-========  ======  ===========
-Name      Type    Description
-========  ======  ===========
-id        string  
-box_html  string  
-========  ======  ===========
-
 

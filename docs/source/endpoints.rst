@@ -1,128 +1,14 @@
-.. _web-api:
-
-.. |webapi-version| replace:: 1.0
-
-==============
-Kegbot Web API
-==============
-
-.. warning::
-  The Kegbot Web API is a work in progress. It will not be considered stable
-  until Kegbot v1.0 is released.
-
-.. warning::
-  Example responses need to be updated. Consult a live Kegbot instance if in
-  doubt.
-
-Overview
-========
-
-The Kegbot Web API aims to provide a simple, HTTP-accessible interface to the
-most commonly-needed Kegbot system data.  The API is modeled after popular APIs
-from `Twitter <http://apiwiki.twitter.com/>`_, `Facebook
-<http://developers.facebook.com/>`_, and others.
-
-This document describes the current verison of the web API, version
-|webapi-version|.  For a summary of changes, see :ref:`api-changelog`
-
-Core Concepts
-=============
-
-URL Scheme
-----------
-
-This document describes several endpoints, which are HTTP URLs serviced by the API.
-Each endpoint corresponds some function or query against the Kegbot system.
-
-Endpoints follow a predictable URL scheme whenever possible. The general
-convention is ``/<noun>/<id>/``, or ``/<noun>/<id>/<subresource>/``. The
-``noun`` portion is typically a pluralized core Kegbot data type: "kegs",
-"drinks", and so on.  The ``id`` portion is a unique identifier for that type of
-noun (typically a string or opaque id).
-
-For example, ``/users/mikey`` returns basic information about that user, and
-``/users/mikey/drinks`` returns his detailed drink list.
-
-Data Format
------------
-
-The response from an endpoint is a well-formed JSON dictionary.  Under normal
-circumstances, the response dictionary will consist of a single top-level entry
-named ``result``, containing the endpoint's specific response data.  The actual
-contents of the ``result`` field vary, and are determined by the endpoint.
-
-Dates and times are always expressed in the UTC time zone.
-
-Error Handling
---------------
-
-If an error occurred or the request could not be processed, the response will
-instead have the top-level field ``error``, as shown below:
-
-.. code-block:: javascript
-  
-  {
-    "error" : {
-      "code" : "PermissionDenied",
-      "message" : "You do not have permission to view this resource."
-    }
-  }
-
-The ``code`` field lists a specific error code, and the ``message`` field
-contains a human-readable explanation.  For a complete list of possible error
-codes, see :ref:`api-error-codes`.
-
-In addition to the Kegbot error codes, the API server will also use HTTP status
-codes to indicate success (200) or failure (400).  Clients *must* handle
-non-200 responses, which may be caused by heavy load, server error, or other
-exceptional circumstances.
-
-.. _api-pagination:
-
-Pagination
-----------
-
-In some cases, Kegbot limits the number of records it will return in a single
-query.  For these queries, an additional top-level field ``paging`` will appear
-in a successful response.  See the :ref:`api-drink-list` section for an
-example.
-
-Most endpoints do *not* paginate their results; those that do must specify this
-behavior.
-
-
-.. _api-security:
-
-Security & Authentication
--------------------------
-
-Most endpoints are considered **Public**, and can be accessed by any HTTP
-client without authentication.
-
-Some endpoints and actions, such as publishing a drink, require a secret key
-in order to be processed, called the *api_key*.  All registered staff and
-superuser accounts have api access.  The key can be determined by logging in to
-your account profile and navigating to ``/account/``.  Example value:
-
-  100000018fe5b1e373a18d7dbb3e51917058aaa7
-
-When required, the token should be given as either an HTTP ``GET`` or ``POST``
-parameter named ``api_key``.
-
-Publishing
-----------
-
-In addition to reading and querying data, the web API can be used for inserting
-and modifying records.  These are implemented as HTTP ``POST`` operations.
-
 .. _api-endpoints:
+
+=============
+API Endpoints
+=============
 
 GET Endpoints
 =============
 
 The following endpoints provide read access to various Kegbot data.  All are
 accessible with HTTP GET operations.
-
 
 .. _api-drink-list:
 
@@ -850,14 +736,3 @@ BadAuthTokenError         The provided auth token was invalid.
 PermissionDeniedError     The auth token provided does not have permission to
                           perform this operation.
 ========================  ======================================================
-
-.. _api-changelog:
-
-Version History
-===============
-
-============  ===========  ============================================
-Date          Version      Comments
-============  ===========  ============================================
-2010-10-18    0.1          Initial version.
-============  ===========  ============================================
