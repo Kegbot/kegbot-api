@@ -4,5 +4,4 @@
 *.egg
 
 python/dist
-python/distribute-*
-python/*egg-info
+python/*.egg-info
