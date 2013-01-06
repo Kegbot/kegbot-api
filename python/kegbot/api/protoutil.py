@@ -20,6 +20,7 @@
 
 import datetime
 
+from google.protobuf.message import Message
 from kegbot.util import util
 
 try:
@@ -29,6 +30,8 @@ except ImportError:
   TIME_ZONE = 'America/Los_Angeles'
 
 def ProtoMessageToDict(message):
+  if not isinstance(message, Message):
+    message = ToProto(message, full=True)
   ret = util.AttrDict()
   #if not message.IsInitialized():
   #  raise ValueError, 'Message not initialized'
