@@ -5,7 +5,7 @@
 For more information and documentation, see http://kegbot.org/docs
 """
 
-VERSION = '0.1.5'
+VERSION = '0.1.6'
 DOCLINES = __doc__.split('\n')
 SHORT_DESCRIPTION = DOCLINES[0]
 LONG_DESCRIPTION = '\n'.join(DOCLINES[2:])
