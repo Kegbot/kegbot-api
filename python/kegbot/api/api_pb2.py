@@ -12,7 +12,7 @@ import models_pb2
 DESCRIPTOR = descriptor.FileDescriptor(
   name='api.proto',
   package='',
-  serialized_pb='\n\tapi.proto\x1a\x0cmodels.proto\"1\n\x04Meta\x12\r\n\x05total\x18\x01 \x01(\r\x12\r\n\x05limit\x18\x02 \x01(\r\x12\x0b\n\x03pos\x18\x03 \x01(\r\"r\n\x17UserRegistrationRequest\x12\x10\n\x08username\x18\x01 \x02(\t\x12\r\n\x05\x65mail\x18\x02 \x02(\t\x12\x10\n\x08password\x18\x03 \x01(\t\x12\x0e\n\x06gender\x18\x04 \x01(\t\x12\x14\n\x0ctwitter_name\x18\x05 \x01(\t\"\xd5\x01\n\x12RecordDrinkRequest\x12\x10\n\x08tap_name\x18\x01 \x01(\t\x12\r\n\x05ticks\x18\x02 \x02(\r\x12\x11\n\tvolume_ml\x18\x03 \x01(\x02\x12\x10\n\x08username\x18\x04 \x01(\t\x12\x16\n\x0bseconds_ago\x18\x05 \x01(\r:\x01\x30\x12\x13\n\x0brecord_date\x18\x06 \x01(\t\x12\x18\n\x10\x64uration_seconds\x18\x07 \x01(\r\x12\x12\n\nauth_token\x18\x08 \x01(\t\x12\x0f\n\x07spilled\x18\t \x01(\x08\x12\r\n\x05shout\x18\n \x01(\t\"T\n\x18RecordTemperatureRequest\x12\x13\n\x0bsensor_name\x18\x01 \x02(\t\x12\x0e\n\x06temp_c\x18\x02 \x02(\x02\x12\x13\n\x0brecord_date\x18\x03 \x01(\tB\x12\n\x10org.kegbot.proto')
+  serialized_pb='\n\tapi.proto\x1a\x0cmodels.proto\"1\n\x04Meta\x12\r\n\x05total\x18\x01 \x01(\r\x12\r\n\x05limit\x18\x02 \x01(\r\x12\x0b\n\x03pos\x18\x03 \x01(\r\"r\n\x17UserRegistrationRequest\x12\x10\n\x08username\x18\x01 \x02(\t\x12\r\n\x05\x65mail\x18\x02 \x02(\t\x12\x10\n\x08password\x18\x03 \x01(\t\x12\x0e\n\x06gender\x18\x04 \x01(\t\x12\x14\n\x0ctwitter_name\x18\x05 \x01(\t\"\xef\x01\n\x12RecordDrinkRequest\x12\x10\n\x08tap_name\x18\x01 \x01(\t\x12\r\n\x05ticks\x18\x02 \x02(\r\x12\x11\n\tvolume_ml\x18\x03 \x01(\x02\x12\x10\n\x08username\x18\x04 \x01(\t\x12\x16\n\x0bseconds_ago\x18\x05 \x01(\r:\x01\x30\x12\x13\n\x0brecord_date\x18\x06 \x01(\t\x12\x18\n\x10\x64uration_seconds\x18\x07 \x01(\r\x12\x12\n\nauth_token\x18\x08 \x01(\t\x12\x0f\n\x07spilled\x18\t \x01(\x08\x12\r\n\x05shout\x18\n \x01(\t\x12\x18\n\x10tick_time_series\x18\x0b \x01(\t\"T\n\x18RecordTemperatureRequest\x12\x13\n\x0bsensor_name\x18\x01 \x02(\t\x12\x0e\n\x06temp_c\x18\x02 \x02(\x02\x12\x13\n\x0brecord_date\x18\x03 \x01(\tB\x12\n\x10org.kegbot.proto')
 
 
 
@@ -192,6 +192,13 @@ _RECORDDRINKREQUEST = descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    descriptor.FieldDescriptor(
+      name='tick_time_series', full_name='RecordDrinkRequest.tick_time_series', index=10,
+      number=11, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=unicode("", "utf-8"),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -202,7 +209,7 @@ _RECORDDRINKREQUEST = descriptor.Descriptor(
   is_extendable=False,
   extension_ranges=[],
   serialized_start=195,
-  serialized_end=408,
+  serialized_end=434,
 )
 
 
@@ -243,8 +250,8 @@ _RECORDTEMPERATUREREQUEST = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=410,
-  serialized_end=494,
+  serialized_start=436,
+  serialized_end=520,
 )
 
 DESCRIPTOR.message_types_by_name['Meta'] = _META
