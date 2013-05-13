@@ -230,8 +230,8 @@ message Keg {
   // `status` is not 'offline', this value is undefined.
   required string end_time = 9;
 
-  // The keg's current status.  Typically either "online" or "offline".
-  required string status = 10;
+  // True if the Keg is currently online.
+  optional boolean online = 10;
 
   // The adminstrator's description of this keg.
   optional string description = 11;
