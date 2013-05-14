@@ -139,9 +139,6 @@ message Drink {
   // Duration, in seconds, of the pour.
   optional uint32 duration = 6;
 
-  // Status of the drink.
-  required string status = 7;
-
   // The Keg from which the drink was poured.  May be unset if the drink was
   // not associated with a keg.
   optional uint32 keg_id = 8;
