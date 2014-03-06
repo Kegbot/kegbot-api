@@ -13,7 +13,7 @@ from google.protobuf import descriptor_pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='models.proto',
   package='',
-  serialized_pb='\n\x0cmodels.proto\"\xce\x01\n\x13\x41uthenticationToken\x12\n\n\x02id\x18\x01 \x02(\r\x12\x13\n\x0b\x61uth_device\x18\x02 \x02(\t\x12\x13\n\x0btoken_value\x18\x03 \x02(\t\x12\x10\n\x08username\x18\x04 \x01(\t\x12\x11\n\tnice_name\x18\x05 \x01(\t\x12\x0f\n\x07\x65nabled\x18\x06 \x01(\x08\x12\x14\n\x0c\x63reated_time\x18\x07 \x02(\t\x12\x13\n\x0b\x65xpire_time\x18\x08 \x01(\t\x12\x0b\n\x03pin\x18\t \x01(\t\x12\x13\n\x04user\x18\n \x01(\x0b\x32\x05.User\"%\n\tBeerStyle\x12\n\n\x02id\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t\"\xd9\x01\n\x08\x42\x65\x65rType\x12\n\n\x02id\x18\x01 \x02(\t\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x11\n\tbrewer_id\x18\x03 \x02(\t\x12\x10\n\x08style_id\x18\x04 \x02(\t\x12\x0f\n\x07\x65\x64ition\x18\x06 \x01(\t\x12\x0b\n\x03\x61\x62v\x18\x07 \x01(\x02\x12\x13\n\x0b\x63\x61lories_oz\x18\x08 \x01(\x02\x12\x10\n\x08\x63\x61rbs_oz\x18\t \x01(\x02\x12\x18\n\x10specific_gravity\x18\n \x01(\x02\x12\x18\n\x10original_gravity\x18\x0b \x01(\x02\x12\x15\n\x05image\x18\x0c \x01(\x0b\x32\x06.Image\"\xb7\x01\n\x06\x42rewer\x12\n\n\x02id\x18\x01 \x02(\t\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x11\n\x07\x63ountry\x18\x03 \x01(\t:\x00\x12\x16\n\x0corigin_state\x18\x04 \x01(\t:\x00\x12\x15\n\x0borigin_city\x18\x05 \x01(\t:\x00\x12\x14\n\nproduction\x18\x06 \x01(\t:\x00\x12\r\n\x03url\x18\x07 \x01(\t:\x00\x12\x15\n\x0b\x64\x65scription\x18\x08 \x01(\t:\x00\x12\x15\n\x05image\x18\t \x01(\x0b\x32\x06.Image\"\xb2\x02\n\x05\x44rink\x12\n\n\x02id\x18\x01 \x02(\r\x12\r\n\x05ticks\x18\x02 \x02(\r\x12\x11\n\tvolume_ml\x18\x03 \x02(\x02\x12\x12\n\nsession_id\x18\x04 \x02(\r\x12\x0c\n\x04time\x18\x05 \x02(\t\x12\x10\n\x08\x64uration\x18\x06 \x01(\r\x12\x0e\n\x06keg_id\x18\x08 \x01(\r\x12\x0f\n\x07user_id\x18\t \x01(\t\x12\x15\n\rauth_token_id\x18\n \x01(\r\x12\x0b\n\x03url\x18\x0b \x01(\t\x12\r\n\x05shout\x18\x0c \x01(\t\x12\x13\n\x04user\x18\r \x01(\x0b\x32\x05.User\x12\x11\n\x03keg\x18\x0e \x01(\x0b\x32\x04.Keg\x12\x19\n\x07session\x18\x0f \x01(\x0b\x32\x08.Session\x12\x16\n\x06images\x18\x10 \x03(\x0b\x32\x06.Image\x12\x18\n\x10tick_time_series\x18\x11 \x01(\t\"\xe1\x01\n\x05Image\x12\x0b\n\x03url\x18\x01 \x02(\t\x12\r\n\x05width\x18\x02 \x01(\r\x12\x0e\n\x06height\x18\x03 \x01(\r\x12\x0c\n\x04time\x18\x04 \x01(\t\x12\x0f\n\x07\x63\x61ption\x18\x05 \x01(\t\x12\x0f\n\x07user_id\x18\x06 \x01(\t\x12\x0e\n\x06keg_id\x18\x07 \x01(\r\x12\x12\n\nsession_id\x18\x08 \x01(\r\x12\x10\n\x08\x64rink_id\x18\t \x01(\r\x12\x15\n\rthumbnail_url\x18\n \x01(\t\x12\x14\n\x0coriginal_url\x18\x0b \x01(\t\x12\x19\n\x11small_resized_url\x18\r \x01(\t\"\xab\x02\n\x03Keg\x12\n\n\x02id\x18\x01 \x02(\r\x12\x0f\n\x07type_id\x18\x02 \x02(\t\x12\x18\n\x10volume_ml_remain\x18\x06 \x02(\x02\x12\x14\n\x0cpercent_full\x18\x07 \x02(\x02\x12\x12\n\nstart_time\x18\x08 \x02(\t\x12\x10\n\x08\x65nd_time\x18\t \x02(\t\x12\x0e\n\x06online\x18\n \x01(\x08\x12\x13\n\x0b\x64\x65scription\x18\x0b \x01(\t\x12\x12\n\nspilled_ml\x18\x0c \x01(\x02\x12\x0b\n\x03url\x18\r \x01(\t\x12\x17\n\x04type\x18\x0f \x01(\x0b\x32\t.BeerType\x12\x0f\n\x07size_id\x18\x10 \x01(\r\x12\x16\n\x04size\x18\x11 \x01(\x0b\x32\x08.KegSize\x12\x11\n\tsize_name\x18\x12 \x01(\t\x12\x16\n\x0esize_volume_ml\x18\x13 \x01(\x02\"6\n\x07KegSize\x12\n\n\x02id\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x11\n\tvolume_ml\x18\x03 \x02(\x02\"Q\n\nController\x12\n\n\x02id\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x12\n\nmodel_name\x18\x03 \x01(\t\x12\x15\n\rserial_number\x18\x04 \x01(\t\"o\n\tFlowMeter\x12\n\n\x02id\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x11\n\tport_name\x18\x03 \x02(\t\x12\x14\n\x0cticks_per_ml\x18\x04 \x02(\x02\x12\x1f\n\ncontroller\x18\x05 \x01(\x0b\x32\x0b.Controller\"\x86\x02\n\x06KegTap\x12\n\n\x02id\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x16\n\nmeter_name\x18\x03 \x01(\tB\x02\x18\x01\x12\x19\n\x05meter\x18\x0c \x01(\x0b\x32\n.FlowMeter\x12\x12\n\nrelay_name\x18\x04 \x01(\t\x12\x13\n\x0bml_per_tick\x18\x05 \x02(\x02\x12\x13\n\x0b\x64\x65scription\x18\x06 \x01(\t\x12\x18\n\x10thermo_sensor_id\x18\x08 \x01(\r\x12$\n\x10last_temperature\x18\t \x01(\x0b\x32\n.ThermoLog\x12\x16\n\x0e\x63urrent_keg_id\x18\n \x01(\r\x12\x19\n\x0b\x63urrent_keg\x18\x0b \x01(\x0b\x32\x04.Keg\"\x8a\x01\n\x07Session\x12\n\n\x02id\x18\x01 \x02(\r\x12\x12\n\nstart_time\x18\x02 \x02(\t\x12\x10\n\x08\x65nd_time\x18\x03 \x02(\t\x12\x11\n\tvolume_ml\x18\x04 \x02(\x02\x12\x0c\n\x04name\x18\x05 \x01(\t\x12\x0c\n\x04slug\x18\x06 \x01(\t\x12\x0b\n\x03url\x18\x07 \x01(\t\x12\x11\n\tis_active\x18\x08 \x01(\x08\"O\n\tThermoLog\x12\n\n\x02id\x18\x01 \x02(\r\x12\x11\n\tsensor_id\x18\x02 \x02(\r\x12\x15\n\rtemperature_c\x18\x03 \x02(\x02\x12\x0c\n\x04time\x18\x04 \x02(\t\"h\n\x0cThermoSensor\x12\n\n\x02id\x18\x01 \x02(\r\x12\x13\n\x0bsensor_name\x18\x02 \x02(\t\x12\x11\n\tnice_name\x18\x03 \x01(\t\x12\x11\n\tlast_temp\x18\x04 \x01(\x02\x12\x11\n\tlast_time\x18\x05 \x01(\t\"\x9c\x01\n\x10ThermoSummaryLog\x12\n\n\x02id\x18\x01 \x02(\r\x12\x11\n\tsensor_id\x18\x02 \x02(\r\x12\x0c\n\x04time\x18\x03 \x02(\t\x12\x0e\n\x06period\x18\x04 \x02(\t\x12\x14\n\x0cnum_readings\x18\x05 \x02(\r\x12\x10\n\x08min_temp\x18\x06 \x02(\x02\x12\x10\n\x08max_temp\x18\x07 \x02(\x02\x12\x11\n\tmean_temp\x18\x08 \x02(\x02\"\xee\x01\n\x04User\x12\x10\n\x08username\x18\x01 \x02(\t\x12\x15\n\x05image\x18\x02 \x01(\x0b\x32\x06.Image\x12\x17\n\tis_active\x18\x03 \x02(\x08:\x04true\x12\x12\n\nfirst_name\x18\x04 \x01(\t\x12\x11\n\tlast_name\x18\x05 \x01(\t\x12\r\n\x05\x65mail\x18\x06 \x01(\t\x12\x10\n\x08password\x18\x07 \x01(\t\x12\x10\n\x08is_staff\x18\x08 \x01(\x08\x12\x14\n\x0cis_superuser\x18\t \x01(\x08\x12\x12\n\nlast_login\x18\n \x01(\t\x12\x13\n\x0b\x64\x61te_joined\x18\x0b \x01(\t\x12\x0b\n\x03url\x18\x0c \x01(\t\"?\n\x0bUserProfile\x12\x10\n\x08username\x18\x01 \x02(\t\x12\x0e\n\x06gender\x18\x02 \x01(\t\x12\x0e\n\x06weight\x18\x03 \x01(\x02\"\x89\x01\n\x0cSessionChunk\x12\n\n\x02id\x18\x01 \x02(\r\x12\x12\n\nsession_id\x18\x02 \x02(\r\x12\x10\n\x08username\x18\x03 \x02(\t\x12\x0e\n\x06keg_id\x18\x04 \x02(\r\x12\x12\n\nstart_time\x18\x05 \x02(\t\x12\x10\n\x08\x65nd_time\x18\x06 \x02(\t\x12\x11\n\tvolume_ml\x18\x07 \x02(\x02\"\xed\x01\n\x0bSystemEvent\x12\n\n\x02id\x18\x01 \x02(\r\x12\x0c\n\x04kind\x18\x02 \x02(\t\x12\x0c\n\x04time\x18\x03 \x02(\t\x12\x10\n\x08\x64rink_id\x18\x04 \x01(\r\x12\x0e\n\x06keg_id\x18\x05 \x01(\r\x12\x12\n\nsession_id\x18\x06 \x01(\r\x12\x0f\n\x07user_id\x18\x07 \x01(\t\x12\x15\n\x05image\x18\x08 \x01(\x0b\x32\x06.Image\x12\x13\n\x04user\x18\t \x01(\x0b\x32\x05.User\x12\x15\n\x05\x64rink\x18\n \x01(\x0b\x32\x06.Drink\x12\x11\n\x03keg\x18\x0b \x01(\x0b\x32\x04.Keg\x12\x19\n\x07session\x18\x0c \x01(\x0b\x32\x08.Session\"Z\n\nSoundEvent\x12\x12\n\nevent_name\x18\x01 \x02(\t\x12\x17\n\x0f\x65vent_predicate\x18\x02 \x01(\t\x12\x11\n\tsound_url\x18\x03 \x02(\t\x12\x0c\n\x04user\x18\x04 \x01(\tB\x12\n\x10org.kegbot.proto')
+  serialized_pb='\n\x0cmodels.proto\"\xce\x01\n\x13\x41uthenticationToken\x12\n\n\x02id\x18\x01 \x02(\r\x12\x13\n\x0b\x61uth_device\x18\x02 \x02(\t\x12\x13\n\x0btoken_value\x18\x03 \x02(\t\x12\x10\n\x08username\x18\x04 \x01(\t\x12\x11\n\tnice_name\x18\x05 \x01(\t\x12\x0f\n\x07\x65nabled\x18\x06 \x01(\x08\x12\x14\n\x0c\x63reated_time\x18\x07 \x02(\t\x12\x13\n\x0b\x65xpire_time\x18\x08 \x01(\t\x12\x0b\n\x03pin\x18\t \x01(\t\x12\x13\n\x04user\x18\n \x01(\x0b\x32\x05.User\"%\n\tBeerStyle\x12\n\n\x02id\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t\"\xd9\x01\n\x08\x42\x65\x65rType\x12\n\n\x02id\x18\x01 \x02(\t\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x11\n\tbrewer_id\x18\x03 \x02(\t\x12\x10\n\x08style_id\x18\x04 \x02(\t\x12\x0f\n\x07\x65\x64ition\x18\x06 \x01(\t\x12\x0b\n\x03\x61\x62v\x18\x07 \x01(\x02\x12\x13\n\x0b\x63\x61lories_oz\x18\x08 \x01(\x02\x12\x10\n\x08\x63\x61rbs_oz\x18\t \x01(\x02\x12\x18\n\x10specific_gravity\x18\n \x01(\x02\x12\x18\n\x10original_gravity\x18\x0b \x01(\x02\x12\x15\n\x05image\x18\x0c \x01(\x0b\x32\x06.Image\"\xb7\x01\n\x06\x42rewer\x12\n\n\x02id\x18\x01 \x02(\t\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x11\n\x07\x63ountry\x18\x03 \x01(\t:\x00\x12\x16\n\x0corigin_state\x18\x04 \x01(\t:\x00\x12\x15\n\x0borigin_city\x18\x05 \x01(\t:\x00\x12\x14\n\nproduction\x18\x06 \x01(\t:\x00\x12\r\n\x03url\x18\x07 \x01(\t:\x00\x12\x15\n\x0b\x64\x65scription\x18\x08 \x01(\t:\x00\x12\x15\n\x05image\x18\t \x01(\x0b\x32\x06.Image\"\xb2\x02\n\x05\x44rink\x12\n\n\x02id\x18\x01 \x02(\r\x12\r\n\x05ticks\x18\x02 \x02(\r\x12\x11\n\tvolume_ml\x18\x03 \x02(\x02\x12\x12\n\nsession_id\x18\x04 \x02(\r\x12\x0c\n\x04time\x18\x05 \x02(\t\x12\x10\n\x08\x64uration\x18\x06 \x01(\r\x12\x0e\n\x06keg_id\x18\x08 \x01(\r\x12\x0f\n\x07user_id\x18\t \x01(\t\x12\x15\n\rauth_token_id\x18\n \x01(\r\x12\x0b\n\x03url\x18\x0b \x01(\t\x12\r\n\x05shout\x18\x0c \x01(\t\x12\x13\n\x04user\x18\r \x01(\x0b\x32\x05.User\x12\x11\n\x03keg\x18\x0e \x01(\x0b\x32\x04.Keg\x12\x19\n\x07session\x18\x0f \x01(\x0b\x32\x08.Session\x12\x16\n\x06images\x18\x10 \x03(\x0b\x32\x06.Image\x12\x18\n\x10tick_time_series\x18\x11 \x01(\t\"\xe1\x01\n\x05Image\x12\x0b\n\x03url\x18\x01 \x02(\t\x12\r\n\x05width\x18\x02 \x01(\r\x12\x0e\n\x06height\x18\x03 \x01(\r\x12\x0c\n\x04time\x18\x04 \x01(\t\x12\x0f\n\x07\x63\x61ption\x18\x05 \x01(\t\x12\x0f\n\x07user_id\x18\x06 \x01(\t\x12\x0e\n\x06keg_id\x18\x07 \x01(\r\x12\x12\n\nsession_id\x18\x08 \x01(\r\x12\x10\n\x08\x64rink_id\x18\t \x01(\r\x12\x15\n\rthumbnail_url\x18\n \x01(\t\x12\x14\n\x0coriginal_url\x18\x0b \x01(\t\x12\x19\n\x11small_resized_url\x18\r \x01(\t\"\xab\x02\n\x03Keg\x12\n\n\x02id\x18\x01 \x02(\r\x12\x0f\n\x07type_id\x18\x02 \x02(\t\x12\x18\n\x10volume_ml_remain\x18\x06 \x02(\x02\x12\x14\n\x0cpercent_full\x18\x07 \x02(\x02\x12\x12\n\nstart_time\x18\x08 \x02(\t\x12\x10\n\x08\x65nd_time\x18\t \x02(\t\x12\x0e\n\x06online\x18\n \x01(\x08\x12\x13\n\x0b\x64\x65scription\x18\x0b \x01(\t\x12\x12\n\nspilled_ml\x18\x0c \x01(\x02\x12\x0b\n\x03url\x18\r \x01(\t\x12\x17\n\x04type\x18\x0f \x01(\x0b\x32\t.BeerType\x12\x0f\n\x07size_id\x18\x10 \x01(\r\x12\x16\n\x04size\x18\x11 \x01(\x0b\x32\x08.KegSize\x12\x11\n\tsize_name\x18\x12 \x01(\t\x12\x16\n\x0esize_volume_ml\x18\x13 \x01(\x02\"6\n\x07KegSize\x12\n\n\x02id\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x11\n\tvolume_ml\x18\x03 \x02(\x02\"Q\n\nController\x12\n\n\x02id\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x12\n\nmodel_name\x18\x03 \x01(\t\x12\x15\n\rserial_number\x18\x04 \x01(\t\"o\n\tFlowMeter\x12\n\n\x02id\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x11\n\tport_name\x18\x03 \x02(\t\x12\x14\n\x0cticks_per_ml\x18\x04 \x02(\x02\x12\x1f\n\ncontroller\x18\x05 \x01(\x0b\x32\x0b.Controller\"Z\n\nFlowToggle\x12\n\n\x02id\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x11\n\tport_name\x18\x03 \x02(\t\x12\x1f\n\ncontroller\x18\x04 \x01(\x0b\x32\x0b.Controller\"\xa3\x02\n\x06KegTap\x12\n\n\x02id\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x16\n\nmeter_name\x18\x03 \x01(\tB\x02\x18\x01\x12\x19\n\x05meter\x18\x0c \x01(\x0b\x32\n.FlowMeter\x12\x1b\n\x06toggle\x18\r \x01(\x0b\x32\x0b.FlowToggle\x12\x12\n\nrelay_name\x18\x04 \x01(\t\x12\x13\n\x0bml_per_tick\x18\x05 \x02(\x02\x12\x13\n\x0b\x64\x65scription\x18\x06 \x01(\t\x12\x18\n\x10thermo_sensor_id\x18\x08 \x01(\r\x12$\n\x10last_temperature\x18\t \x01(\x0b\x32\n.ThermoLog\x12\x16\n\x0e\x63urrent_keg_id\x18\n \x01(\r\x12\x19\n\x0b\x63urrent_keg\x18\x0b \x01(\x0b\x32\x04.Keg\"\x8a\x01\n\x07Session\x12\n\n\x02id\x18\x01 \x02(\r\x12\x12\n\nstart_time\x18\x02 \x02(\t\x12\x10\n\x08\x65nd_time\x18\x03 \x02(\t\x12\x11\n\tvolume_ml\x18\x04 \x02(\x02\x12\x0c\n\x04name\x18\x05 \x01(\t\x12\x0c\n\x04slug\x18\x06 \x01(\t\x12\x0b\n\x03url\x18\x07 \x01(\t\x12\x11\n\tis_active\x18\x08 \x01(\x08\"O\n\tThermoLog\x12\n\n\x02id\x18\x01 \x02(\r\x12\x11\n\tsensor_id\x18\x02 \x02(\r\x12\x15\n\rtemperature_c\x18\x03 \x02(\x02\x12\x0c\n\x04time\x18\x04 \x02(\t\"h\n\x0cThermoSensor\x12\n\n\x02id\x18\x01 \x02(\r\x12\x13\n\x0bsensor_name\x18\x02 \x02(\t\x12\x11\n\tnice_name\x18\x03 \x01(\t\x12\x11\n\tlast_temp\x18\x04 \x01(\x02\x12\x11\n\tlast_time\x18\x05 \x01(\t\"\x9c\x01\n\x10ThermoSummaryLog\x12\n\n\x02id\x18\x01 \x02(\r\x12\x11\n\tsensor_id\x18\x02 \x02(\r\x12\x0c\n\x04time\x18\x03 \x02(\t\x12\x0e\n\x06period\x18\x04 \x02(\t\x12\x14\n\x0cnum_readings\x18\x05 \x02(\r\x12\x10\n\x08min_temp\x18\x06 \x02(\x02\x12\x10\n\x08max_temp\x18\x07 \x02(\x02\x12\x11\n\tmean_temp\x18\x08 \x02(\x02\"\xee\x01\n\x04User\x12\x10\n\x08username\x18\x01 \x02(\t\x12\x15\n\x05image\x18\x02 \x01(\x0b\x32\x06.Image\x12\x17\n\tis_active\x18\x03 \x02(\x08:\x04true\x12\x12\n\nfirst_name\x18\x04 \x01(\t\x12\x11\n\tlast_name\x18\x05 \x01(\t\x12\r\n\x05\x65mail\x18\x06 \x01(\t\x12\x10\n\x08password\x18\x07 \x01(\t\x12\x10\n\x08is_staff\x18\x08 \x01(\x08\x12\x14\n\x0cis_superuser\x18\t \x01(\x08\x12\x12\n\nlast_login\x18\n \x01(\t\x12\x13\n\x0b\x64\x61te_joined\x18\x0b \x01(\t\x12\x0b\n\x03url\x18\x0c \x01(\t\"?\n\x0bUserProfile\x12\x10\n\x08username\x18\x01 \x02(\t\x12\x0e\n\x06gender\x18\x02 \x01(\t\x12\x0e\n\x06weight\x18\x03 \x01(\x02\"\x89\x01\n\x0cSessionChunk\x12\n\n\x02id\x18\x01 \x02(\r\x12\x12\n\nsession_id\x18\x02 \x02(\r\x12\x10\n\x08username\x18\x03 \x02(\t\x12\x0e\n\x06keg_id\x18\x04 \x02(\r\x12\x12\n\nstart_time\x18\x05 \x02(\t\x12\x10\n\x08\x65nd_time\x18\x06 \x02(\t\x12\x11\n\tvolume_ml\x18\x07 \x02(\x02\"\xed\x01\n\x0bSystemEvent\x12\n\n\x02id\x18\x01 \x02(\r\x12\x0c\n\x04kind\x18\x02 \x02(\t\x12\x0c\n\x04time\x18\x03 \x02(\t\x12\x10\n\x08\x64rink_id\x18\x04 \x01(\r\x12\x0e\n\x06keg_id\x18\x05 \x01(\r\x12\x12\n\nsession_id\x18\x06 \x01(\r\x12\x0f\n\x07user_id\x18\x07 \x01(\t\x12\x15\n\x05image\x18\x08 \x01(\x0b\x32\x06.Image\x12\x13\n\x04user\x18\t \x01(\x0b\x32\x05.User\x12\x15\n\x05\x64rink\x18\n \x01(\x0b\x32\x06.Drink\x12\x11\n\x03keg\x18\x0b \x01(\x0b\x32\x04.Keg\x12\x19\n\x07session\x18\x0c \x01(\x0b\x32\x08.Session\"Z\n\nSoundEvent\x12\x12\n\nevent_name\x18\x01 \x02(\t\x12\x17\n\x0f\x65vent_predicate\x18\x02 \x01(\t\x12\x11\n\tsound_url\x18\x03 \x02(\t\x12\x0c\n\x04user\x18\x04 \x01(\tB\x12\n\x10org.kegbot.proto')
 
 
 
@@ -837,6 +837,55 @@ _FLOWMETER = _descriptor.Descriptor(
 )
 
 
+_FLOWTOGGLE = _descriptor.Descriptor(
+  name='FlowToggle',
+  full_name='FlowToggle',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='FlowToggle.id', index=0,
+      number=1, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='FlowToggle.name', index=1,
+      number=2, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=unicode("", "utf-8"),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='port_name', full_name='FlowToggle.port_name', index=2,
+      number=3, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=unicode("", "utf-8"),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='controller', full_name='FlowToggle.controller', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  serialized_start=1761,
+  serialized_end=1851,
+)
+
+
 _KEGTAP = _descriptor.Descriptor(
   name='KegTap',
   full_name='KegTap',
@@ -873,49 +922,56 @@ _KEGTAP = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='relay_name', full_name='KegTap.relay_name', index=4,
+      name='toggle', full_name='KegTap.toggle', index=4,
+      number=13, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='relay_name', full_name='KegTap.relay_name', index=5,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=unicode("", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='ml_per_tick', full_name='KegTap.ml_per_tick', index=5,
+      name='ml_per_tick', full_name='KegTap.ml_per_tick', index=6,
       number=5, type=2, cpp_type=6, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='description', full_name='KegTap.description', index=6,
+      name='description', full_name='KegTap.description', index=7,
       number=6, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=unicode("", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='thermo_sensor_id', full_name='KegTap.thermo_sensor_id', index=7,
+      name='thermo_sensor_id', full_name='KegTap.thermo_sensor_id', index=8,
       number=8, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='last_temperature', full_name='KegTap.last_temperature', index=8,
+      name='last_temperature', full_name='KegTap.last_temperature', index=9,
       number=9, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='current_keg_id', full_name='KegTap.current_keg_id', index=9,
+      name='current_keg_id', full_name='KegTap.current_keg_id', index=10,
       number=10, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='current_keg', full_name='KegTap.current_keg', index=10,
+      name='current_keg', full_name='KegTap.current_keg', index=11,
       number=11, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -930,8 +986,8 @@ _KEGTAP = _descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=1762,
-  serialized_end=2024,
+  serialized_start=1854,
+  serialized_end=2145,
 )
 
 
@@ -1007,8 +1063,8 @@ _SESSION = _descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=2027,
-  serialized_end=2165,
+  serialized_start=2148,
+  serialized_end=2286,
 )
 
 
@@ -1056,8 +1112,8 @@ _THERMOLOG = _descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=2167,
-  serialized_end=2246,
+  serialized_start=2288,
+  serialized_end=2367,
 )
 
 
@@ -1112,8 +1168,8 @@ _THERMOSENSOR = _descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=2248,
-  serialized_end=2352,
+  serialized_start=2369,
+  serialized_end=2473,
 )
 
 
@@ -1189,8 +1245,8 @@ _THERMOSUMMARYLOG = _descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=2355,
-  serialized_end=2511,
+  serialized_start=2476,
+  serialized_end=2632,
 )
 
 
@@ -1294,8 +1350,8 @@ _USER = _descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=2514,
-  serialized_end=2752,
+  serialized_start=2635,
+  serialized_end=2873,
 )
 
 
@@ -1336,8 +1392,8 @@ _USERPROFILE = _descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=2754,
-  serialized_end=2817,
+  serialized_start=2875,
+  serialized_end=2938,
 )
 
 
@@ -1406,8 +1462,8 @@ _SESSIONCHUNK = _descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=2820,
-  serialized_end=2957,
+  serialized_start=2941,
+  serialized_end=3078,
 )
 
 
@@ -1511,8 +1567,8 @@ _SYSTEMEVENT = _descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=2960,
-  serialized_end=3197,
+  serialized_start=3081,
+  serialized_end=3318,
 )
 
 
@@ -1560,8 +1616,8 @@ _SOUNDEVENT = _descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=3199,
-  serialized_end=3289,
+  serialized_start=3320,
+  serialized_end=3410,
 )
 
 _AUTHENTICATIONTOKEN.fields_by_name['user'].message_type = _USER
@@ -1574,7 +1630,9 @@ _DRINK.fields_by_name['images'].message_type = _IMAGE
 _KEG.fields_by_name['type'].message_type = _BEERTYPE
 _KEG.fields_by_name['size'].message_type = _KEGSIZE
 _FLOWMETER.fields_by_name['controller'].message_type = _CONTROLLER
+_FLOWTOGGLE.fields_by_name['controller'].message_type = _CONTROLLER
 _KEGTAP.fields_by_name['meter'].message_type = _FLOWMETER
+_KEGTAP.fields_by_name['toggle'].message_type = _FLOWTOGGLE
 _KEGTAP.fields_by_name['last_temperature'].message_type = _THERMOLOG
 _KEGTAP.fields_by_name['current_keg'].message_type = _KEG
 _USER.fields_by_name['image'].message_type = _IMAGE
@@ -1593,6 +1651,7 @@ DESCRIPTOR.message_types_by_name['Keg'] = _KEG
 DESCRIPTOR.message_types_by_name['KegSize'] = _KEGSIZE
 DESCRIPTOR.message_types_by_name['Controller'] = _CONTROLLER
 DESCRIPTOR.message_types_by_name['FlowMeter'] = _FLOWMETER
+DESCRIPTOR.message_types_by_name['FlowToggle'] = _FLOWTOGGLE
 DESCRIPTOR.message_types_by_name['KegTap'] = _KEGTAP
 DESCRIPTOR.message_types_by_name['Session'] = _SESSION
 DESCRIPTOR.message_types_by_name['ThermoLog'] = _THERMOLOG
@@ -1663,6 +1722,12 @@ class FlowMeter(_message.Message):
   DESCRIPTOR = _FLOWMETER
 
   # @@protoc_insertion_point(class_scope:FlowMeter)
+
+class FlowToggle(_message.Message):
+  __metaclass__ = _reflection.GeneratedProtocolMessageType
+  DESCRIPTOR = _FLOWTOGGLE
+
+  # @@protoc_insertion_point(class_scope:FlowToggle)
 
 class KegTap(_message.Message):
   __metaclass__ = _reflection.GeneratedProtocolMessageType
