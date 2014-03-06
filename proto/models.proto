@@ -468,6 +468,13 @@ message User {
   optional string url = 12;
 }
 
+// Site information.
+
+message SiteInfo {
+  optional string title = 1;
+  optional string server_version = 2;
+}
+
 // Extended information about a specific user.
 // Only available to admin users.
 message UserProfile {
