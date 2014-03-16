@@ -97,21 +97,12 @@ class Client:
     self._api_url = api_url
     self._api_key = api_key
 
-  def _Encode(self, s):
-    return unicode(s).encode('utf-8')
-
-  def _EncodePostData(self, post_data):
-    if not post_data:
-      return None
-    return urlencode(dict(((k, self._Encode(v)) for k, v in
-        post_data.iteritems() if v is not None)))
-
-  def _GetURL(self, endpoint):
+  def _get_url(self, endpoint):
     base = self._api_url.rstrip('/')
     endpoint = endpoint.strip('/')
     return '%s/%s' % (base, endpoint)
 
-  def DoGET(self, endpoint, params=None):
+  def _http_get(self, endpoint, params=None):
     """Issues a GET request to the endpoint, and retuns the result.
 
     Keyword arguments are passed to the endpoint as GET arguments.
@@ -123,9 +114,9 @@ class Client:
     If there was an error contacting the server, or in parsing its response, a
     ServerError is raised.
     """
-    return self._FetchResponse(endpoint, params=params)
+    return self._http_request(endpoint, params=params)
 
-  def DoPOST(self, endpoint, post_data, params=None):
+  def _http_post(self, endpoint, post_data, params=None):
     """Issues a POST request to the endpoint, and returns the result.
 
     For normal responses, the return value is the Python JSON-decoded 'object'
@@ -135,14 +126,14 @@ class Client:
     If there was an error contacting the server, or in parsing its response, a
     ServerError is raised.
     """
-    return self._FetchResponse(endpoint, params=params, post_data=post_data)
+    return self._http_request(endpoint, params=params, post_data=post_data)
 
-  def _FetchResponse(self, endpoint, params=None, post_data=None):
+  def _http_request(self, endpoint, params=None, post_data=None):
     """Issues a POST or GET request, depending on the arguments."""
     headers = {
       'X-Kegbot-Api-Key': self._api_key,
     }
-    url = self._GetURL(endpoint)
+    url = self._get_url(endpoint)
 
     try:
       if post_data:
@@ -156,7 +147,7 @@ class Client:
 
     return decode_response(r)
 
-  def RecordDrink(self, tap_name, ticks, volume_ml=None, username=None,
+  def record_drink(self, tap_name, ticks, volume_ml=None, username=None,
       pour_time=None, duration=0, auth_token=None, spilled=False, shout=''):
     endpoint = '/taps/%s' % tap_name
     post_data = {
@@ -178,65 +169,43 @@ class Client:
     if pour_time:
       post_data['pour_time'] = int(pour_time.strftime('%s'))
       post_data['now'] = int(datetime.datetime.now().strftime('%s'))
-    return self.DoPOST(endpoint, post_data=post_data).object
+    return self._http_post(endpoint, post_data=post_data).object
 
-  def CancelDrink(self, seqn, spilled=False):
+  def cancel_drink(self, seqn, spilled=False):
     endpoint = '/cancel-drink'
     post_data = {
       'id': seqn,
       'spilled': spilled,
     }
-    return self.DoPOST(endpoint, post_data=post_data).object
+    return self._http_post(endpoint, post_data=post_data).object
 
-  def LogSensorReading(self, sensor_name, temperature, when=None):
+  def log_sensor_reading(self, sensor_name, temperature, when=None):
     endpoint = '/thermo-sensors/%s' % (sensor_name,)
     post_data = {
       'temp_c': float(temperature),
     }
     # TODO(mikey): include post data
-    return self.DoPOST(endpoint, post_data=post_data).object
+    return self._http_post(endpoint, post_data=post_data).object
 
-  def Status(self):
+  def status(self):
     """Gets complete system status."""
-    return self.DoGET('status').object
+    return self._http_get('status').object
 
-  def TapStatus(self):
+  def taps(self):
     """Gets the status of all taps."""
-    return self.DoGET('taps').objects
+    return self._http_get('taps').objects
 
-  def GetToken(self, auth_device, token_value):
+  def get_token(self, auth_device, token_value):
     url = 'auth-tokens/%s/%s' % (auth_device, token_value)
     try:
-      return self.DoGET(url).object
+      return self._http_get(url).object
     except ServerError, e:
       raise NotFoundError(e)
 
-  def AllDrinks(self):
+  def drinks(self):
     """Gets a list of all drinks."""
-    return self.DoGET('drinks').objects
+    return self._http_get('drinks').objects
 
-  def AllSoundEvents(self):
-    """Gets a list of all drinks."""
-    return self.DoGET('sound-events').objects
-
-def main():
-  import pprint
-  c = Client()
-
-  print '== record a drink =='
-  pprint.pprint(c.RecordDrink('kegboard.flow0', 2200))
-  print ''
-
-  print '== tap status =='
-  for t in c.TapStatus():
-    pprint.pprint(t)
-    print ''
-
-  print '== last drinks =='
-  for d in c.AllDrinks():
-    pprint.pprint(d)
-    print ''
-
-if __name__ == '__main__':
-  FLAGS(sys.argv)
-  main()
+  def sound_events(self):
+    """Gets a list of all sound events."""
+    return self._http_get('sound-events').objects
