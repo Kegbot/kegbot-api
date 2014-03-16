@@ -22,6 +22,7 @@ import datetime
 import sys
 import requests
 
+from kegbot.api.exceptions import *
 from kegbot.util import kbjson
 
 import gflags
@@ -52,46 +53,6 @@ gflags.DEFINE_string('api_key', _DEFAULT_KEY,
     'Access key for the Kegweb HTTP api.')
 
 ### begin common
-
-class Error(Exception):
-  """An error occurred."""
-  HTTP_CODE = 400
-  def Message(self):
-    if self.message:
-      return self.message
-    m = self.__class__.__doc__
-    m = m.split('\n', 1)[0]
-    return m
-
-class NotFoundError(Error):
-  """The requested object could not be found."""
-  HTTP_CODE = 404
-
-class ServerError(Error):
-  """The server had a problem fulfilling your request."""
-  HTTP_CODE = 500
-
-class BadRequestError(Error):
-  """The request was incompleted or malformed."""
-  HTTP_CODE = 401
-
-class NoAuthTokenError(Error):
-  """An api_key is required."""
-  HTTP_CODE = 401
-
-class BadApiKeyError(Error):
-  """The api_key given is invalid."""
-  HTTP_CODE = 401
-
-class PermissionDeniedError(Error):
-  """The api_key given does not have permission for this resource."""
-  HTTP_CODE = 401
-
-MAP_NAME_TO_EXCEPTION = dict((c.__name__, c) for c in Error.__subclasses__())
-
-def ErrorCodeToException(code, message=None):
-  cls = MAP_NAME_TO_EXCEPTION.get(code, Error)
-  return cls(message)
 
 def decode_response(response):
   """Decodes the requests response object as a JSON response.
