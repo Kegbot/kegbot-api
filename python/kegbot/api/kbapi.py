@@ -22,6 +22,9 @@ import datetime
 import sys
 import requests
 
+import logging
+logging.getLogger('requests').setLevel(logging.WARNING)
+
 from kegbot.api.exceptions import *
 from kegbot.util import kbjson
 
@@ -63,7 +66,10 @@ def decode_response(response):
   """
 
   status_code = response.status_code
-  response_dict = kbjson.loads(response.text)
+  try:
+    response_dict = kbjson.loads(response.text)
+  except ValueError as e:
+    raise ServerError('Invalid JSON response from server: %s' % e)
 
   if 'error' in response_dict:
     # Response had an error: translate to exception.
@@ -105,9 +111,6 @@ class Client:
     endpoint = endpoint.strip('/')
     return '%s/%s' % (base, endpoint)
 
-  def SetAuthToken(self, api_key):
-    self._api_key = api_key
-
   def DoGET(self, endpoint, params=None):
     """Issues a GET request to the endpoint, and retuns the result.
 
@@ -141,12 +144,15 @@ class Client:
     }
     url = self._GetURL(endpoint)
 
-    if post_data:
-      r = requests.post(url, params=params, data=post_data, headers=headers,
-          timeout=FLAGS.api_timeout)
-    else:
-      r = requests.get(url, params=params, headers=headers,
-          timeout=FLAGS.api_timeout)
+    try:
+      if post_data:
+        r = requests.post(url, params=params, data=post_data, headers=headers,
+            timeout=FLAGS.api_timeout)
+      else:
+        r = requests.get(url, params=params, headers=headers,
+            timeout=FLAGS.api_timeout)
+    except requests.exceptions.RequestException as e:
+      raise RequestError(e)
 
     return decode_response(r)
 
@@ -189,6 +195,10 @@ class Client:
     }
     # TODO(mikey): include post data
     return self.DoPOST(endpoint, post_data=post_data).object
+
+  def Status(self):
+    """Gets complete system status."""
+    return self.DoGET('status').object
 
   def TapStatus(self):
     """Gets the status of all taps."""
