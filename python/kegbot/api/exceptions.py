@@ -39,7 +39,7 @@ class ServerError(Error):
 
 class BadRequestError(Error):
   """The request was incomplete or malformed."""
-  HTTP_CODE = 401
+  HTTP_CODE = 400
 
 class NoAuthTokenError(Error):
   """An api_key is required."""

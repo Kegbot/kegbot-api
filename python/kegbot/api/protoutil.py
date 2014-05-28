@@ -22,11 +22,7 @@ import datetime
 
 from kegbot.util import util
 
-try:
-  from django.conf import settings
-  TIME_ZONE = settings.TIME_ZONE
-except ImportError:
-  TIME_ZONE = 'America/Los_Angeles'
+TIME_ZONE = 'UTC'
 
 def ProtoMessageToDict(message):
   ret = util.AttrDict()
