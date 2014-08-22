@@ -209,3 +209,19 @@ class Client:
   def sound_events(self):
     """Gets a list of all sound events."""
     return self._http_get('sound-events').objects
+
+  def create_controller(self, controller_name, model_name='unknown', serial_number='unknown'):
+    post_data = {
+      'name': controller_name,
+      'model_name': model_name,
+      'serial_number': serial_number,
+    }
+    return self._http_post('controllers', post_data=post_data).object
+
+  def create_flow_meter(self, controller_id, port_name, ticks_per_ml=2.2):
+    post_data = {
+      'port_name': port_name,
+      'controller': controller_id,
+      'ticks_per_ml': ticks_per_ml,
+    }
+    return self._http_post('flow-meters', post_data=post_data).object
