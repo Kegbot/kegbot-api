@@ -5,7 +5,7 @@
 For more information and documentation, see http://kegbot.org/docs
 """
 
-VERSION = '0.1.17'
+VERSION = '1.1.0'
 DOCLINES = __doc__.split('\n')
 SHORT_DESCRIPTION = DOCLINES[0]
 LONG_DESCRIPTION = '\n'.join(DOCLINES[2:])
@@ -18,8 +18,8 @@ def setup_package():
       version = VERSION,
       description = SHORT_DESCRIPTION,
       long_description = LONG_DESCRIPTION,
-      author = 'mike wakerly',
-      author_email = 'opensource@hoho.com',
+      author = 'Bevbot LLC',
+      author_email = 'info@bevbot.com',
       url = 'http://kegbot.org/',
       packages = find_packages(exclude=['testdata']),
       namespace_packages = ['kegbot'],
