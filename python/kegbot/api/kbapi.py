@@ -18,6 +18,7 @@
 
 """Kegweb API client."""
 
+from builtins import object
 import datetime
 import sys
 import requests
@@ -87,7 +88,7 @@ def decode_response(response):
 
 ### end common
 
-class Client:
+class Client(object):
   """Kegweb RESTful API client."""
   def __init__(self, api_url=None, api_key=None):
     if api_url is None:
@@ -199,7 +200,7 @@ class Client:
     url = 'auth-tokens/%s/%s' % (auth_device, token_value)
     try:
       return self._http_get(url).object
-    except ServerError, e:
+    except ServerError as e:
       raise NotFoundError(e)
 
   def drinks(self):
