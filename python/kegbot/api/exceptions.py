@@ -19,6 +19,9 @@
 class Error(Exception):
   """An error occurred."""
   HTTP_CODE = 400
+  def __init__(self, message=None):
+    self.message = message
+
   def Message(self):
     if self.message:
       return self.message

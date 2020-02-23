@@ -27,7 +27,7 @@ import logging
 logging.getLogger('requests').setLevel(logging.WARNING)
 
 from kegbot.api.exceptions import *
-from kegbot.util import kbjson
+import json
 
 import gflags
 
@@ -68,7 +68,7 @@ def decode_response(response):
 
   status_code = response.status_code
   try:
-    response_dict = kbjson.loads(response.text)
+    response_dict = json.loads(response.text)
   except ValueError as e:
     raise ServerError('Invalid JSON response from server: %s' % e)
 

@@ -21,12 +21,10 @@
 from future.utils import raise_
 import datetime
 
-from kegbot.util import util
-
 TIME_ZONE = 'UTC'
 
 def ProtoMessageToDict(message):
-  ret = util.AttrDict()
+  ret = {}
   #if not message.IsInitialized():
   #  raise ValueError, 'Message not initialized'
   for descriptor, value in message.ListFields():
