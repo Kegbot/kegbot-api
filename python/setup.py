@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 import pathlib
 
-VERSION = '1.2.0'
-BASE_DIR = pathlib.Path(__file__).parent
+VERSION = '1.3.0'
+BASE_DIR = pathlib.Path(__file__).resolve().parents[1].absolute()
 README = (BASE_DIR / 'README.md').read_text()
 
 setup(
