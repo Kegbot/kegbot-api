@@ -1,38 +1,26 @@
-#!/usr/bin/env python
-
-"""Kegbot API client library.
-
-For more information and documentation, see http://kegbot.org/docs
-"""
+from setuptools import setup, find_packages
+import pathlib
 
 VERSION = '1.2.0'
-DOCLINES = __doc__.split('\n')
-SHORT_DESCRIPTION = DOCLINES[0]
-LONG_DESCRIPTION = '\n'.join(DOCLINES[2:])
+BASE_DIR = pathlib.Path(__file__).parent
+README = (BASE_DIR / 'README.md').read_text()
 
-def setup_package():
-  from setuptools import setup, find_packages
-
-  setup(
-      name = 'kegbot-api',
-      version = VERSION,
-      description = SHORT_DESCRIPTION,
-      long_description = LONG_DESCRIPTION,
-      author = 'Bevbot LLC',
-      author_email = 'info@bevbot.com',
-      url = 'http://kegbot.org/',
-      packages = find_packages(exclude=['testdata']),
-      namespace_packages = ['kegbot'],
-      install_requires = [
-        'python-gflags >= 1.8',
-        'protobuf >= 2.4.1',
-        'requests',
-      ],
-      dependency_links = [
-          'https://github.com/rem/python-protobuf/tarball/master#egg=protobuf-2.4.1',
-      ],
-      include_package_data = True,
-  )
-
-if __name__ == '__main__':
-  setup_package()
+setup(
+  name='kegbot-api',
+  version=VERSION,
+  description='Kegbot API client library.',
+  long_description=README,
+  long_description_content_type='text/markdown',
+  author='The Kegbot Project',
+  author_email='info@kegbot.org',
+  license='ISC',
+  url='https://kegbot.org/',
+  packages=find_packages(exclude=['testdata']),
+  namespace_packages=['kegbot'],
+  install_requires=[
+    'python-gflags >= 1.8',
+    'python3-protobuf',
+    'requests',
+  ],
+  include_package_data=True,
+)
