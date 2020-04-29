@@ -1,27 +1,10 @@
-# Copyright 2010 Mike Wakerly <opensource@hoho.com>
-#
-# This file is part of the Pykeg package of the Kegbot project.
-# For more information on Pykeg or Kegbot, see http://kegbot.org/
-#
-# Pykeg is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 2 of the License, or
-# (at your option) any later version.
-#
-# Pykeg is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Pykeg.  If not, see <http://www.gnu.org/licenses/>.
-
 """Kegweb API client."""
 
 from builtins import object
 import datetime
 import sys
 import requests
+from .util import AttrDict
 
 import logging
 logging.getLogger('requests').setLevel(logging.WARNING)
@@ -67,10 +50,7 @@ def decode_response(response):
   """
 
   status_code = response.status_code
-  try:
-    response_dict = json.loads(response.text)
-  except ValueError as e:
-    raise ServerError('Invalid JSON response from server: %s' % e)
+  response_dict = response.json()
 
   if 'error' in response_dict:
     # Response had an error: translate to exception.
@@ -81,7 +61,7 @@ def decode_response(response):
     raise e
   elif 'object' in response_dict or 'objects' in response_dict:
     # Response was OK, return the result.
-    return response_dict
+    return AttrDict(response_dict)
   else:
     # WTF?
     raise ValueError('Invalid response from server: missing result or error')
