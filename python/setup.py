@@ -1,15 +1,21 @@
-from setuptools import setup, find_packages
-import pathlib
+"""Kegboard API client library
 
-VERSION = '1.3.0'
-BASE_DIR = pathlib.Path(__file__).resolve().parents[1].absolute()
-README = (BASE_DIR / 'README.md').read_text()
+This package contains the Python API client for Kegbot.  For more
+information, see https://kegbot.org/docs
+"""
+
+from setuptools import setup, find_packages
+
+VERSION = '1.3.1'
+DOCLINES = __doc__.split('\n')
+SHORT_DESCRIPTION = DOCLINES[0]
+LONG_DESCRIPTION = '\n'.join(DOCLINES[2:])
 
 setup(
   name='kegbot-api',
   version=VERSION,
-  description='Kegbot API client library.',
-  long_description=README,
+  description=SHORT_DESCRIPTION,
+  long_description=LONG_DESCRIPTION,
   long_description_content_type='text/markdown',
   author='The Kegbot Project Contributors',
   author_email='info@kegbot.org',
