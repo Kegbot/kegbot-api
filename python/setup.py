@@ -6,7 +6,7 @@ information, see https://kegbot.org/docs
 
 from setuptools import setup, find_packages
 
-VERSION = '1.3.1'
+VERSION = '1.3.2'
 DOCLINES = __doc__.split('\n')
 SHORT_DESCRIPTION = DOCLINES[0]
 LONG_DESCRIPTION = '\n'.join(DOCLINES[2:])
