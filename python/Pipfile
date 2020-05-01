@@ -7,8 +7,8 @@ verify_ssl = true
 
 [packages]
 python-gflags = "*"
-python3-protobuf = "*"
 requests = "*"
+protobuf = "*"
 
 [requires]
 python_version = "3.7"

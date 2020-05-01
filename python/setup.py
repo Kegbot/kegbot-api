@@ -25,7 +25,7 @@ setup(
   namespace_packages=['kegbot'],
   install_requires=[
     'python-gflags >= 1.8',
-    'python3-protobuf',
+    'protobuf',
     'requests',
   ],
   include_package_data=True,
