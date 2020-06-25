@@ -129,7 +129,7 @@ class Client(object):
     return decode_response(r)
 
   def record_drink(self, tap_name, ticks, volume_ml=None, username=None,
-      pour_time=None, duration=0, auth_token=None, spilled=False, shout=''):
+      pour_time=None, record_date=None, duration=0, auth_token=None, spilled=False, shout=''):
     endpoint = '/taps/%s' % tap_name
     post_data = {
       'tap_name': tap_name,
@@ -147,6 +147,8 @@ class Client(object):
       post_data['spilled'] = spilled
     if shout:
       post_data['shout'] = shout
+    if record_date:
+      post_data['record_date'] = record_date
     if pour_time:
       post_data['pour_time'] = int(pour_time.strftime('%s'))
       post_data['now'] = int(datetime.datetime.now().strftime('%s'))
